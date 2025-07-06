@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
 import { accMoThe, accMoGoi, accDoiHinh } from '../data'
 import AccCard from '../components/AccCard'
 import banner from '../assets/img/banner.gif'
 import { SiZalo } from 'react-icons/si'
 import { accImages } from '../assets/images'
+import SEOHead from '../components/SEOHead'
 
 // SEO Meta Data
 const SEO_DATA = {
@@ -55,91 +55,6 @@ const PhoneIcon = () => (
 )
 
 export default function HomePage() {
-  // SEO Setup
-  useEffect(() => {
-    // Update document title and meta tags
-    document.title = SEO_DATA.title
-    
-    // Update meta description
-    let metaDescription = document.querySelector('meta[name="description"]')
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta')
-      metaDescription.name = 'description'
-      document.head.appendChild(metaDescription)
-    }
-    metaDescription.content = SEO_DATA.description
-
-    // Update meta keywords
-    let metaKeywords = document.querySelector('meta[name="keywords"]')
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta')
-      metaKeywords.name = 'keywords'
-      document.head.appendChild(metaKeywords)
-    }
-    metaKeywords.content = SEO_DATA.keywords
-
-    // Update Open Graph tags
-    let ogTitle = document.querySelector('meta[property="og:title"]')
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta')
-      ogTitle.setAttribute('property', 'og:title')
-      document.head.appendChild(ogTitle)
-    }
-    ogTitle.content = SEO_DATA.title
-
-    let ogDescription = document.querySelector('meta[property="og:description"]')
-    if (!ogDescription) {
-      ogDescription = document.createElement('meta')
-      ogDescription.setAttribute('property', 'og:description')
-      document.head.appendChild(ogDescription)
-    }
-    ogDescription.content = SEO_DATA.description
-
-    let ogImage = document.querySelector('meta[property="og:image"]')
-    if (!ogImage) {
-      ogImage = document.createElement('meta')
-      ogImage.setAttribute('property', 'og:image')
-      document.head.appendChild(ogImage)
-    }
-    ogImage.content = SEO_DATA.ogImage
-
-    // Add canonical link
-    let canonical = document.querySelector('link[rel="canonical"]')
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.rel = 'canonical'
-      document.head.appendChild(canonical)
-    }
-    canonical.href = SEO_DATA.canonical
-
-    // Add structured data
-    const structuredData = {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: 'truongvantoan.com',
-      url: 'https://truongvantoan.com',
-      description: SEO_DATA.description,
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: 'https://truongvantoan.com/shop?q={search_term_string}',
-        'query-input': 'required name=search_term_string'
-      }
-    }
-
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.text = JSON.stringify(structuredData)
-    script.id = 'homepage-structured-data'
-    document.head.appendChild(script)
-
-    // Cleanup function
-    return () => {
-      const existingScript = document.getElementById('homepage-structured-data')
-      if (existingScript) {
-        document.head.removeChild(existingScript)
-      }
-    }
-  }, [])
 
   // Lấy 4 sản phẩm nổi bật từ các danh sách
   const featuredProducts = [
@@ -149,7 +64,15 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEOHead 
+        title={SEO_DATA.title}
+        description={SEO_DATA.description}
+        keywords={SEO_DATA.keywords}
+        image={SEO_DATA.ogImage}
+        url={SEO_DATA.canonical}
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative text-white py-20 overflow-hidden rounded-lg">
         {/* Background Image */}
@@ -299,5 +222,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   )
 } 

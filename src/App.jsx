@@ -6,6 +6,7 @@ import ReviewPage from './pages/ReviewPage'
 import AccDetailPage from './pages/AccDetailPage'
 import CartPage from './pages/CartPage'
 import HomePage from './pages/HomePage'
+import SearchPage from './pages/SearchPage'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="review" element={<ReviewPage />} />
         <Route path="acc/:id" element={<AccDetailPage />} />
         <Route path="cart" element={<CartPage />} />
+        <Route path="search" element={<SearchPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

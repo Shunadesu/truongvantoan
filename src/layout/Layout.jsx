@@ -11,7 +11,7 @@ export default function Layout() {
       <ScrollToTop />
       <Header />
      
-      <main className="container max-w-[1240px] mx-auto px-2 md:px-4 py-8 flex-1">
+      <main className="container max-w-[1240px] mx-auto px-2 md:px-4 flex-1 py-8">
         <Outlet />
       </main>
       <Footer />

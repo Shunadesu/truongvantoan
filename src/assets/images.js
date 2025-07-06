@@ -65,6 +65,9 @@ import img_bombp from './img/dichvu/bombp.webp'
 import img_cauthufixgia from './img/dichvu/cauthufixgia.webp'
 import img_caythuerank from './img/dichvu/caythuerank.webp'
 
+//nền
+import img_25tots from './img/25tots.jpg'
+
 
 // Account images
 export const accImages = {
@@ -130,4 +133,7 @@ export const accImages = {
     img_bombp,
     img_cauthufixgia,
     img_caythuerank,
+
+    // nền
+    img_25tots,
 }   

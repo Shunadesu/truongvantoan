@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { AiOutlineMenu, AiOutlineClose, AiOutlineShoppingCart, AiOutlineSearch } from 'react-icons/ai'
 import { useCart } from '../contexts/CartContext'
 import { BiPhone } from 'react-icons/bi'
+import { FaHome } from 'react-icons/fa'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -30,7 +31,7 @@ export default function Header() {
           className="font-extrabold text-xl md:text-2xl tracking-widest text-white transition cursor-pointer"
           onClick={handleLogoClick}
         >
-          truongvantoan.com
+          <FaHome size={24} className='text-white'/>
         </Link>
         {/* Desktop menu */}
         <div className="hidden md:flex gap-6 text-ld font-semibold items-center">

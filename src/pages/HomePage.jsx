@@ -58,9 +58,8 @@ export default function HomePage() {
 
   // Lấy 4 sản phẩm nổi bật từ các danh sách
   const featuredProducts = [
-    
-    ...accMoGoi.slice(0, 1).map(item => ({ ...item, uniqueId: `mo_goi_${item.id}` })),
-    ...accDoiHinh.slice(0, 1).map(item => ({ ...item, uniqueId: `doi_hinh_${item.id}` }))
+    ...accMoGoi.slice(0, 2).map(item => ({ ...item, uniqueId: `mo_goi_${item.id}` })),
+    ...accDoiHinh.slice(0, 2).map(item => ({ ...item, uniqueId: `doi_hinh_${item.id}` }))
   ]
 
   return (
@@ -146,7 +145,7 @@ export default function HomePage() {
           </div>
         </section>
         {/* Featured Products */}
-        <section className="py-8 bg-blue-50 rounded-lg">
+        <section className="py-8 bg-white rounded-lg">
           <div className="container max-w-[1240px] mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-4">Acc game giá hot</h2>

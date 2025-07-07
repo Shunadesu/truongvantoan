@@ -1,7 +1,5 @@
 import { useState, useMemo } from 'react';
-import { 
-  accMoThe, 
-  accMoGoi, 
+import {  
   accDoiHinh, 
   accBPTrang, 
   accFCTrang, 
@@ -10,8 +8,7 @@ import {
 
 // Combine all data with category labels
 const allAccounts = [
-  ...accMoThe.map(item => ({ ...item, category: 'Mở Thẻ', categoryKey: 'mo-the' })),
-  ...accMoGoi.map(item => ({ ...item, category: 'Mở Gói', categoryKey: 'mo-goi' })),
+ 
   ...accDoiHinh.map(item => ({ ...item, category: 'Đổi Hình', categoryKey: 'doi-hinh' })),
   ...accBPTrang.map(item => ({ ...item, category: 'BP Trắng', categoryKey: 'bp-trang' })),
   ...accFCTrang.map(item => ({ ...item, category: 'FC Trắng', categoryKey: 'fc-trang' })),

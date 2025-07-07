@@ -8,8 +8,8 @@ export default function ReviewPage() {
           {/* YouTube Video Section */}
           <div className="max-w-6xl mx-auto">
             {/* Featured Video */}
-            <div className="bg-white bg-opacity-95 rounded-2xl shadow-2xl overflow-hidden mb-8">
-              <div className="p-6 border-b border-gray-200">
+            <div className="bg-white bg-opacity-95 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="px-6 pt-6 pb-2 border-b border-gray-200">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -17,7 +17,7 @@ export default function ReviewPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 text-lg">Video Review Nổi Bật</h3>
+                    <h3 className="font-semibold text-gray-800 text-lg">Video Review Hướng dẫn</h3>
                     <p className="text-sm text-gray-500">Cập nhật mới nhất</p>
                   </div>
                 </div>
@@ -30,7 +30,7 @@ export default function ReviewPage() {
                     {/* Replace the src with your actual YouTube video ID */}
                     <iframe 
                       className="w-full aspect-video rounded-lg shadow-lg"
-                      src="https://www.youtube.com/embed/OE-VSpQqcjI?rel=0&modestbranding=1"
+                      src="https://www.youtube.com/embed/O-tD19TuLTQ?rel=0&modestbranding=1"
                       title="YouTube video player"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -43,15 +43,15 @@ export default function ReviewPage() {
               {/* Video Info */}
               <div className="p-6 bg-white">
                 <h4 className="text-xl font-bold text-gray-800 mb-2">
-                  Lạc khúc giữa sông
+                  Hướng dẫn thay đổi mật khẩu 2 và câu hỏi bảo mật
                 </h4>
                 <p className="text-gray-600 mb-4">
-                  Bà con nhớ bật độ phân giải 1080HD để xem cho nét nghen!
+                  Kiểm tra kĩ nhen anh em 
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">#CầnThơ</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">#CờĐỏ</span>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">#ThạnhPhú</span>
+                  <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">#Hướngdẫn</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">#Câuhỏi</span>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">#Bảomật</span>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function ReviewPage() {
                   Nhận thông báo video mới nhất và không bỏ lỡ những nội dung hấp dẫn!
                 </p>
                 <a 
-                  href="https://www.youtube.com/@truongvantoan" 
+                  href="https://www.youtube.com/@truongvantoanfifa" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-8 py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"

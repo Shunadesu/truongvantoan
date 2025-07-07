@@ -3,8 +3,11 @@ import { accMoThe, accMoGoi, accDoiHinh, accBPTrang, accFCTrang, dichVu } from '
 import { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import AccCard from '../components/AccCard'
-import emailjs from '@emailjs/browser'
+
 import { useCart } from '../contexts/CartContext'
+import { FaFacebookMessenger } from 'react-icons/fa'
+import { SiZalo } from 'react-icons/si'
+import { BsCartPlus } from 'react-icons/bs'
 
 function findAccById(id) {
   const all = [accMoThe, accMoGoi, accDoiHinh, accBPTrang, accFCTrang, dichVu].flat()
@@ -13,7 +16,7 @@ function findAccById(id) {
 
 function getRelatedAccs(acc, id, n = 4) {
   if (!acc) return []
-  const all = [accMoThe, accMoGoi, accDoiHinh, accBPTrang, accFCTrang, dichVu].flat()
+  const all = [accDoiHinh, accBPTrang, accFCTrang, dichVu].flat()
   let related = []
   if (acc.category) {
     related = all.filter(a => a.category === acc.category && String(a.id) !== String(id))
@@ -39,10 +42,7 @@ export default function AccDetailPage() {
   const [showImageModal, setShowImageModal] = useState(false)
   const [modalImage, setModalImage] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', phone: '' })
-  const [loading, setLoading] = useState(false)
-  const [modalType, setModalType] = useState('cart')
+
   const relatedAccs = getRelatedAccs(acc, id)
   const { addToCart } = useCart()
 
@@ -67,7 +67,6 @@ export default function AccDetailPage() {
     setMainImg(images[0])
   }, [id])
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
   const handleAddToCart = () => {
     if (addToCart(acc)) {
@@ -77,31 +76,7 @@ export default function AccDetailPage() {
     }
   }
 
-  const handleSubmit = async e => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
-          user_name: form.name,
-          user_email: form.email,
-          user_phone: form.phone,
-          acc: `ID: ${acc.id} - ${acc.name} - ${acc.price}`,
-          type: modalType === 'buy' ? 'Mua ngay' : 'Thêm vào giỏ',
-        },
-        'YOUR_PUBLIC_KEY'
-      )
-      toast.success('Đã gửi thông tin! Chúng tôi sẽ liên hệ bạn sớm.')
-      setShowModal(false)
-      setForm({ name: '', email: '', phone: '' })
-    } catch {
-      toast.error('Gửi thông tin thất bại!')
-    } finally {
-      setLoading(false)
-    }
-  }
+  
 
   const openImageModal = (image) => {
     setModalImage(image)
@@ -124,7 +99,7 @@ export default function AccDetailPage() {
           <img 
             src={mainImg} 
             alt={acc.name} 
-            className="w-72 h-72 object-cover rounded mb-4 border-4 border-blue-600 cursor-pointer hover:opacity-90 transition-opacity" 
+            className="w-full h-full object-contain rounded mb-4 border-4 border-blue-600 cursor-pointer hover:opacity-90 transition-opacity" 
             onClick={() => openImageModal(mainImg)}
           />
           {images.length > 1 && (
@@ -149,10 +124,41 @@ export default function AccDetailPage() {
           <h1 className="text-3xl font-bold text-blue-800 mb-2">{acc.name}</h1>
           <div className="text-xl text-blue-700 font-semibold mb-2">Giá:  {acc.price}</div>
           <div className="text-gray-700 mb-4">{acc.description}</div>
-          <div className="flex gap-2 mb-4">
-            <button className="bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-900 transition text-lg" onClick={() => {setModalType('buy'); setShowModal(true);}}>Mua ngay</button>
-            <button className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-800 transition text-lg" onClick={handleAddToCart}>Thêm vào giỏ</button>
-          </div>
+          <div className="text-gray-700 mb-4">ID: {acc.id} - Liên hệ ngay</div>
+          <div className="grid grid-cols-3 items-center gap-2">
+          {/* Facebook Button */}
+          <a 
+            href="https://www.facebook.com/toan.truong1003" 
+            target="_blank" 
+            title="Facebook" 
+            onClick={e => e.stopPropagation()}
+            className="bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm px-3 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 shadow-md hover:shadow-lg"
+          >
+            
+            <FaFacebookMessenger size={24}/>
+          </a>
+          
+          {/* Zalo Button */}
+          <a 
+            href="https://zalo.me/0931133159" 
+            target="_blank" 
+            title="Zalo" 
+            onClick={e => e.stopPropagation()}
+            className=" bg-blue-500 hover:bg-blue-600 text-white text-xs md:text-sm px-3 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 shadow-md hover:shadow-lg"
+          >
+            
+              <SiZalo size={24}/>
+          </a>
+          
+          {/* Add to Cart Button */}
+          <button 
+            className=" bg-green-600 hover:bg-green-700 text-white text-xs md:text-sm px-3 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-1 shadow-md hover:shadow-lg" 
+            onClick={handleAddToCart}
+            title="Thêm vào giỏ hàng"
+          >
+            <BsCartPlus size={24}/>
+          </button>
+        </div>
         </div>
       </div>
       {/* Tham khảo thêm */}
@@ -165,23 +171,7 @@ export default function AccDetailPage() {
         </div>
       </div>
 
-      {/* Modal xác nhận */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md animate-fade-in flex flex-col gap-4 relative">
-            <button type="button" className="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl" onClick={() => setShowModal(false)}>&times;</button>
-            <h2 className="text-2xl font-bold text-blue-800 mb-2">Xác nhận {modalType === 'buy' ? 'mua acc' : 'thêm vào giỏ'}</h2>
-            <input required name="name" value={form.name} onChange={handleChange} placeholder="Họ tên" className="border rounded px-4 py-2" />
-            <input required name="email" value={form.email} onChange={handleChange} placeholder="Email" type="email" className="border rounded px-4 py-2" />
-            <input required name="phone" value={form.phone} onChange={handleChange} placeholder="Số điện thoại" className="border rounded px-4 py-2" />
-            <div className="text-gray-700 text-sm mb-2">Acc: <span className="text-blue-800 font-bold">ID: {acc.id} - {acc.name} - {acc.price}</span></div>
-            <button type="submit" disabled={loading} className="bg-blue-700 hover:bg-blue-900 text-white font-bold px-6 py-3 rounded transition disabled:opacity-60 disabled:cursor-not-allowed">
-              {loading ? 'Đang gửi...' : 'Xác nhận & Gửi thông tin'}
-            </button>
-            <div className="text-gray-700 text-sm mb-2 text-center">Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất</div>
-          </form>
-        </div>
-      )}
+    
 
       {/* Image Modal */}
       {showImageModal && (

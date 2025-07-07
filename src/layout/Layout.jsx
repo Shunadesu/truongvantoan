@@ -7,12 +7,16 @@ import { Outlet } from 'react-router-dom'
 export default function Layout() {
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: 'url(/src/assets/img/bannerchealse.jpeg)',
+      backgroundAttachment: 'fixed'
+    }}>
       <ScrollToTop />
       <Header />
-     
-      <main className="container max-w-[1240px] mx-auto px-2 md:px-4 flex-1 py-8">
-        <Outlet />
+      <main className="container max-w-[1240px] mx-auto px-2 md:px-4 flex-1 py-8 relative z-10 rounded-lg overflow-hidden">
+        <div className="p-6 rounded-lg bg-white backdrop-blur-sm">
+          <Outlet />
+        </div>
       </main>
       <Footer />
       <FloatingContactButtons />

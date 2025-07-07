@@ -72,20 +72,20 @@ export default function HomePage() {
         url={SEO_DATA.canonical}
       />
       <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section
       <section className="relative text-white py-20 overflow-hidden rounded-lg">
-        {/* Background Image */}
+        
         <img 
           src={accImages.bannerchealse} 
           alt="Trương Văn Toàn Banner" 
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
-        {/* Overlay để làm mờ */}
+       
         <div className="absolute top-0 left-0 w-full h-full bg-black/10"></div>
-        {/* Gradient overlay để tăng độ tương phản */}
+        
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900/20 to-blue-700/70"></div>
         
-        {/* Content */}
+        
         <div className="relative z-10 container max-w-[1240px] mx-auto px-4">
           <div className="grid p-4 md:grid-cols-1 gap-12 justify-center items-center text-center">
             <div className="p-4 w-full">
@@ -95,7 +95,7 @@ export default function HomePage() {
               <p className="text-xl md:text-2xl mb-8 text-blue-100 drop-shadow-md">
                 Shop bán account game uy tín hàng đầu Việt Nam
               </p>
-              {/* Social Media & Contact Buttons */}
+             
               <div className="flex w-full flex-wrap gap-2 md:gap-4 justify-center items-center">
                 <SocialButton 
                   href={SOCIAL_LINKS.facebook}
@@ -128,7 +128,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
         {/* Featured Products */}
         <section className="py-8 bg-white rounded-lg">
           <div className="container max-w-[1240px] mx-auto px-4">

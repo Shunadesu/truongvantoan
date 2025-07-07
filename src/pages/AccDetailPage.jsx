@@ -8,6 +8,7 @@ import { useCart } from '../contexts/CartContext'
 import { FaFacebookMessenger } from 'react-icons/fa'
 import { SiZalo } from 'react-icons/si'
 import { BsCartPlus } from 'react-icons/bs'
+import ReactDOM from 'react-dom'
 
 function findAccById(id) {
   const all = [accMoThe, accMoGoi, accDoiHinh, accBPTrang, accFCTrang, dichVu].flat()
@@ -266,37 +267,38 @@ export default function AccDetailPage() {
     
 
       {/* Image Modal */}
-      {showImageModal && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+      {showImageModal && ReactDOM.createPortal(
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-75 z-50 ${isZoomed ? '' : 'flex items-center justify-center p-4'}`}
           onClick={closeImageModal}
+          style={isZoomed ? { padding: 0, display: 'block' } : {}}
         >
-          <div className="relative max-w-full max-h-full select-none">
-            <img 
-              src={modalImage} 
-              alt={acc.name} 
-              ref={imgRef}
-              className={`rounded-lg shadow-2xl ${
-                isZoomed 
-                  ? 'w-auto h-auto max-w-none max-h-none cursor-grab' 
-                  : 'max-w-full max-h-[90vh] object-contain cursor-zoom-in'
-              } ${hasTransition ? 'transition-all duration-300' : ''}`}
-              style={isZoomed ? { transform: `scale(1.5) translate(${drag.offsetX}px, ${drag.offsetY}px)`, cursor: isDragging ? 'grabbing' : 'grab' } : {}}
-              onClick={handleImageClick}
-              onPointerDown={handlePointerDown}
-              draggable={false}
-            />
-            <button 
-              onClick={closeImageModal}
-              className="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-10"
-            >
-              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-              </svg>
-            </button>
-           
-          </div>
-        </div>
+          <img
+            src={modalImage}
+            alt={acc.name}
+            ref={imgRef}
+            className={`rounded-lg shadow-2xl ${isZoomed
+              ? 'fixed top-0 left-0 w-screen h-screen object-contain z-50 cursor-grab'
+              : 'relative max-w-full max-h-[90vh] object-contain cursor-zoom-in'
+            } ${hasTransition ? 'transition-all duration-300' : ''}`}
+            style={isZoomed
+              ? { transform: `scale(1.5) translate(${drag.offsetX}px, ${drag.offsetY}px)`, cursor: isDragging ? 'grabbing' : 'grab', background: 'black' }
+              : {}
+            }
+            onClick={handleImageClick}
+            onPointerDown={handlePointerDown}
+            draggable={false}
+          />
+          <button
+            onClick={closeImageModal}
+            className="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all z-10"
+          >
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+          </button>
+        </div>,
+        document.body
       )}
     </>
   )

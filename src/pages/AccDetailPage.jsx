@@ -204,7 +204,9 @@ export default function AccDetailPage() {
                 src={img}
                 alt={acc.name + ' thumbnail'}
                 className={`w-16 h-16 object-cover rounded border-2 cursor-pointer hover:opacity-80 transition-opacity ${mainImg === img ? 'border-blue-600' : 'border-gray-300'}`}
-                onClick={() => {
+                onClick={e => {
+                  e.preventDefault();
+                  e.stopPropagation();
                   setMainImg(img)
                   openImageModal(img)
                 }}
@@ -216,9 +218,9 @@ export default function AccDetailPage() {
         {/* Thông tin acc */}
         <div className="flex-1 flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-blue-800 mb-2">{acc.name}</h1>
+          <div className="text-gray-700 mb-4">Mô tả: {acc.description}</div>
+          <div className="text-gray-700 mb-4">Trạng thái: {acc.status}</div>
           <div className="text-xl text-blue-700 font-semibold mb-2">Giá:  {acc.price}</div>
-          <div className="text-gray-700 mb-4">{acc.description}</div>
-          <div className="text-gray-700 mb-4">ID: {acc.id} - Liên hệ ngay</div>
           <div className="grid grid-cols-3 items-center gap-2">
           {/* Facebook Button */}
           <a 

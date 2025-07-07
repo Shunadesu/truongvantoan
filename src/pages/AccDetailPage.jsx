@@ -151,7 +151,8 @@ export default function AccDetailPage() {
 
   // Zoom đúng vị trí click
   const handleImageClick = (e) => {
-    e.stopPropagation()
+    e.preventDefault();
+    e.stopPropagation();
     if (!isZoomed) {
       // Zoom in tại vị trí click
       const rect = imgRef.current.getBoundingClientRect()

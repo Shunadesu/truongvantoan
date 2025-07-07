@@ -1,6 +1,8 @@
 // Banner images
 
 import banner from './img/banner.gif'
+import bannerchealse from './img/bannerchealse.jpeg'
+
 import imgCheckLegit from './img/img_check_legit.jpg'
 import img_qr_boxchat from './img/img_qr_boxchat.jpg'
 import img_acc_mo_the_150k from './img/accmothe/accmothe150.webp'
@@ -72,6 +74,7 @@ import img_25tots from './img/25tots.jpg'
 // Account images
 export const accImages = {
     banner,
+    bannerchealse,
     imgCheckLegit,
     img_qr_boxchat,
     img_acc_mo_the_150k,

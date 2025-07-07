@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { accMoThe, accMoGoi, accDoiHinh } from '../data'
+import { accMoGoi, accDoiHinh, accFCTrang } from '../data'
 import AccCard from '../components/AccCard'
 import banner from '../assets/img/banner.gif'
 import { SiZalo } from 'react-icons/si'
@@ -58,7 +58,7 @@ export default function HomePage() {
 
   // Lấy 4 sản phẩm nổi bật từ các danh sách
   const featuredProducts = [
-    ...accMoThe.slice(0, 2).map(item => ({ ...item, uniqueId: `mo_the_${item.id}` })),
+    
     ...accMoGoi.slice(0, 1).map(item => ({ ...item, uniqueId: `mo_goi_${item.id}` })),
     ...accDoiHinh.slice(0, 1).map(item => ({ ...item, uniqueId: `doi_hinh_${item.id}` }))
   ]
@@ -77,14 +77,14 @@ export default function HomePage() {
       <section className="relative text-white py-20 overflow-hidden rounded-lg">
         {/* Background Image */}
         <img 
-          src={banner} 
+          src={accImages.bannerchealse} 
           alt="Trương Văn Toàn Banner" 
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
         {/* Overlay để làm mờ */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black/10"></div>
         {/* Gradient overlay để tăng độ tương phản */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900/70 to-blue-700/70"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900/20 to-blue-700/70"></div>
         
         {/* Content */}
         <div className="relative z-10 container max-w-[1240px] mx-auto px-4">
@@ -134,11 +134,11 @@ export default function HomePage() {
         <section className="py-8 bg-white rounded-lg">
           <div className="container max-w-[1240px] mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-4">Danh sách Tài khoản Mở thẻ</h2>
+              <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-4">Danh sách Tài khoản FC Trắng</h2>
               {/* <p className="text-xl text-gray-600">Những account game chất lượng cao được nhiều người chọn</p> */}
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6 mb-8">
-              {accMoThe.map(product => (
+              {accFCTrang.map(product => (
                 <AccCard key={product.uniqueId} acc={product} />
               ))}
             </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container max-w-[1240px] mx-auto px-4">
           <div className="flex flex-col gap-4">
-            <img src={accImages.banner} alt="truongvantoan.com" className="w-full h-auto rounded-lg" />
+           
             <Link to="https://www.facebook.com/photo/?fbid=2320510934798841&set=a.441073339409286" target="_blank">
             <img src={accImages.imgCheckLegit} alt="truongvantoan.com" className="w-full h-auto rounded-lg" />
             </Link>

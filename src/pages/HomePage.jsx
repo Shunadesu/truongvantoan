@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { accMoGoi, accDoiHinh, accFCTrang } from '../data'
+import { accDoiHinh, accFCTrang } from '../data'
 import AccCard from '../components/AccCard'
 import banner from '../assets/img/banner.gif'
 import { SiZalo } from 'react-icons/si'
@@ -58,8 +58,8 @@ export default function HomePage() {
 
   // Lấy 4 sản phẩm nổi bật từ các danh sách
   const featuredProducts = [
-    ...accMoGoi.slice(0, 2).map(item => ({ ...item, uniqueId: `mo_goi_${item.id}` })),
-    ...accDoiHinh.slice(0, 2).map(item => ({ ...item, uniqueId: `doi_hinh_${item.id}` }))
+    ...accFCTrang.slice(0, 2).map(item => ({ ...item, uniqueId: `fctrang_${item.id}` })),
+    ...accDoiHinh.slice(0, 2).map(item => ({ ...item, uniqueId: `doihinh_${item.id}` }))
   ]
 
   return (

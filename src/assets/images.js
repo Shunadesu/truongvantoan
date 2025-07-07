@@ -2,7 +2,7 @@
 
 import banner from './img/banner.gif'
 import bannerchealse from './img/bannerchealse.jpeg'
-
+import logotvt from './img/logotvt-removebg-preview.png'
 import imgCheckLegit from './img/img_check_legit.jpg'
 import img_qr_boxchat from './img/img_qr_boxchat.jpg'
 
@@ -43,7 +43,7 @@ export const accImages = {
     bannerchealse,
     imgCheckLegit,
     img_qr_boxchat,
-
+    logotvt,
 
     // acc mở gói
     img_acc_mo_goi_550k,

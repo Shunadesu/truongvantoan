@@ -4,6 +4,7 @@ import { AiOutlineMenu, AiOutlineClose, AiOutlineShoppingCart, AiOutlineSearch }
 import { useCart } from '../contexts/CartContext'
 import { BiPhone } from 'react-icons/bi'
 import { FaHome } from 'react-icons/fa'
+import { accImages } from '../assets/images'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -28,10 +29,10 @@ export default function Header() {
       <nav className="container max-w-[1240px] mx-auto flex justify-between items-center py-4 px-4 relative">
         <Link 
           to="/" 
-          className="font-extrabold text-xl md:text-2xl tracking-widest text-white transition cursor-pointer"
+          className="font-extrabold text-xl md:text-2xl tracking-widest text-white p-2 bg-white rounded-full transition cursor-pointer"
           onClick={handleLogoClick}
         >
-          <FaHome size={24} className='text-white'/>
+          <img src={accImages.logotvt} alt="logo" className='w-10 h-10' />
         </Link>
         {/* Desktop menu */}
         <div className="hidden md:flex gap-6 text-ld font-semibold items-center">

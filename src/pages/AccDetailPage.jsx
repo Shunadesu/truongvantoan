@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { accMoThe, accMoGoi, accDoiHinh, accBPTrang, accFCTrang, dichVu } from '../data'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { toast } from 'react-hot-toast'
 import AccCard from '../components/AccCard'
 
@@ -42,6 +42,10 @@ export default function AccDetailPage() {
   const [showImageModal, setShowImageModal] = useState(false)
   const [modalImage, setModalImage] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
+  const [drag, setDrag] = useState({ isDragging: false, startX: 0, startY: 0, offsetX: 0, offsetY: 0, lastOffsetX: 0, lastOffsetY: 0 })
+  const imgRef = useRef(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [hasTransition, setHasTransition] = useState(true)
 
   const relatedAccs = getRelatedAccs(acc, id)
   const { addToCart } = useCart()
@@ -67,6 +71,15 @@ export default function AccDetailPage() {
     setMainImg(images[0])
   }, [id])
 
+  useEffect(() => {
+    if (!showImageModal) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeImageModal();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showImageModal]);
+
 
   const handleAddToCart = () => {
     if (addToCart(acc)) {
@@ -81,12 +94,91 @@ export default function AccDetailPage() {
   const openImageModal = (image) => {
     setModalImage(image)
     setShowImageModal(true)
+    setIsZoomed(false)
+    setDrag({ isDragging: false, startX: 0, startY: 0, offsetX: 0, offsetY: 0, lastOffsetX: 0, lastOffsetY: 0 })
+    setHasTransition(true)
   }
 
   const closeImageModal = () => {
     setShowImageModal(false)
     setModalImage('')
     setIsZoomed(false)
+    setDrag({ isDragging: false, startX: 0, startY: 0, offsetX: 0, offsetY: 0, lastOffsetX: 0, lastOffsetY: 0 })
+    setHasTransition(true)
+  }
+
+  // Xử lý kéo ảnh khi zoom (pointer events)
+  const handlePointerDown = (e) => {
+    if (!isZoomed) return
+    e.preventDefault()
+    setIsDragging(true)
+    setHasTransition(false)
+    setDrag(d => ({
+      ...d,
+      isDragging: true,
+      startX: e.clientX,
+      startY: e.clientY
+    }))
+    window.addEventListener('pointermove', handlePointerMove)
+    window.addEventListener('pointerup', handlePointerUp)
+  }
+
+  const handlePointerMove = (e) => {
+    if (!isZoomed || !isDragging) return
+    e.preventDefault()
+    const dx = e.clientX - drag.startX
+    const dy = e.clientY - drag.startY
+    setDrag(d => ({
+      ...d,
+      offsetX: d.lastOffsetX + dx,
+      offsetY: d.lastOffsetY + dy
+    }))
+  }
+
+  const handlePointerUp = () => {
+    setIsDragging(false)
+    setHasTransition(false)
+    setDrag(d => ({
+      ...d,
+      isDragging: false,
+      lastOffsetX: d.offsetX,
+      lastOffsetY: d.offsetY
+    }))
+    window.removeEventListener('pointermove', handlePointerMove)
+    window.removeEventListener('pointerup', handlePointerUp)
+  }
+
+  // Zoom đúng vị trí click
+  const handleImageClick = (e) => {
+    e.stopPropagation()
+    if (!isZoomed) {
+      // Zoom in tại vị trí click
+      const rect = imgRef.current.getBoundingClientRect()
+      const clickX = e.clientX - rect.left
+      const clickY = e.clientY - rect.top
+      const imgWidth = rect.width
+      const imgHeight = rect.height
+      // scale = 1.5, offset để điểm click nằm giữa
+      const scale = 1.5
+      const offsetX = (imgWidth / 2 - clickX) * (scale - 1)
+      const offsetY = (imgHeight / 2 - clickY) * (scale - 1)
+      setDrag({
+        isDragging: false,
+        startX: 0,
+        startY: 0,
+        offsetX,
+        offsetY,
+        lastOffsetX: offsetX,
+        lastOffsetY: offsetY
+      })
+      setIsZoomed(true)
+      setHasTransition(true)
+    } else {
+      // Zoom out
+      setIsZoomed(false)
+      setHasTransition(true)
+      setDrag({ isDragging: false, startX: 0, startY: 0, offsetX: 0, offsetY: 0, lastOffsetX: 0, lastOffsetY: 0 })
+    }
   }
 
   if (!acc) return <div className="text-red-600 text-xl">Không tìm thấy acc!</div>
@@ -179,17 +271,20 @@ export default function AccDetailPage() {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
           onClick={closeImageModal}
         >
-          <div className="relative max-w-full max-h-full">
+          <div className="relative max-w-full max-h-full select-none">
             <img 
               src={modalImage} 
               alt={acc.name} 
-              className={`transition-all duration-300 rounded-lg shadow-2xl ${
+              ref={imgRef}
+              className={`rounded-lg shadow-2xl ${
                 isZoomed 
-                  ? 'w-auto h-auto max-w-none max-h-none scale-150 cursor-zoom-out' 
+                  ? 'w-auto h-auto max-w-none max-h-none cursor-grab' 
                   : 'max-w-full max-h-[90vh] object-contain cursor-zoom-in'
-              }`}
-              onClick={(e) => e.stopPropagation()}
-              onDoubleClick={() => setIsZoomed(!isZoomed)}
+              } ${hasTransition ? 'transition-all duration-300' : ''}`}
+              style={isZoomed ? { transform: `scale(1.5) translate(${drag.offsetX}px, ${drag.offsetY}px)`, cursor: isDragging ? 'grabbing' : 'grab' } : {}}
+              onClick={handleImageClick}
+              onPointerDown={handlePointerDown}
+              draggable={false}
             />
             <button 
               onClick={closeImageModal}
@@ -199,11 +294,7 @@ export default function AccDetailPage() {
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
               </svg>
             </button>
-            {isZoomed && (
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-lg text-sm">
-                Double-click để thu nhỏ
-              </div>
-            )}
+           
           </div>
         </div>
       )}

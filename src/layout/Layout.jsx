@@ -8,13 +8,13 @@ import backgroundImage from '../assets/img/bannerchealse.jpeg'
 export default function Layout() {
 
   return (
-    <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" style={{
+    <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat " style={{
       backgroundImage: `url(${backgroundImage})`,
       backgroundAttachment: 'fixed'
     }}>
       <ScrollToTop />
       <Header />
-      <main className="container max-w-[1240px] mx-auto px-2 md:px-4 flex-1 py-8 relative z-10 rounded-lg overflow-hidden">
+      <main className="container max-w-[1240px] mx-auto px-2 md:px-4 flex-1 py-8  z-10 rounded-lg relative overflow-hidden">
         <div className="p-6 rounded-lg bg-white backdrop-blur-sm">
           <Outlet />
         </div>

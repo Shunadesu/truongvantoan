@@ -80,9 +80,9 @@ export default function NewsPage() {
                 <div className="relative">
                   {/* Option 1: Original iframe */}
                   <div className="md:block hidden">
-
+                  
                     <iframe 
-                      src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Qnof9ntbmKpLTjbLaVRHZHCRXD1nhRjXUTbXooKxALJuhWohJHH9DsxE7TghtWgDl&show_text=true&width=500" 
+                      src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02p97xBYdx9t43V2N87oT5qMzYJFeqewNE7QqLBgsvJppTfqZfQhQhfG9mj9xqsjXBl&show_text=true&width=500" 
                       width="600" 
                       height="540" 
                       style={{border: 'none', overflow: 'hidden'}} 

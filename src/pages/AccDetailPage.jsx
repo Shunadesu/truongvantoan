@@ -320,21 +320,24 @@ export default function AccDetailPage() {
           onClick={closeImageModal}
           style={isZoomed ? { padding: 0, display: 'block' } : {}}
         >
-          <img
-            src={modalImage}
-            alt={acc.name}
+          <div
             ref={imgRef}
             className={`rounded-lg shadow-2xl ${isZoomed
-              ? 'fixed top-0 left-0 w-screen h-screen object-contain z-50 cursor-grab'
-              : 'relative max-w-full max-h-[90vh] object-contain cursor-zoom-in'
+              ? 'fixed top-0 left-0 w-screen h-screen z-50 cursor-grab'
+              : 'relative max-w-full max-h-[90vh] cursor-zoom-in'
             } ${hasTransition ? 'transition-all duration-300' : ''}`}
-            style={isZoomed
-              ? { transform: `scale(1.5) translate(${drag.offsetX}px, ${drag.offsetY}px)`, cursor: isDragging ? 'grabbing' : 'grab', background: 'black' }
-              : {}
-            }
+            style={{
+              backgroundImage: `url('${modalImage}')`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundSize: 'contain',
+              ...(isZoomed
+                ? { transform: `scale(1.5) translate(${drag.offsetX}px, ${drag.offsetY}px)`, cursor: isDragging ? 'grabbing' : 'grab', backgroundColor: 'black', width: '100vw', height: '100vh' }
+                : { width: '100%', height: '90vh' }
+              )
+            }}
             onClick={handleImageClick}
             onPointerDown={handlePointerDown}
-            draggable={false}
           />
           <button
             onClick={closeImageModal}

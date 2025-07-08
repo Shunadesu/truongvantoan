@@ -71,7 +71,7 @@ export default function AccCard({ acc, disableNavigate }) {
   return (
     <div className="bg-white relative border border-blue-200 rounded-lg shadow flex flex-col items-center cursor-pointer hover:shadow-xl transition" >
       <div
-        onClick={disableNavigate ? undefined : goToDetail}
+        onClick={goToDetail}
         className="relative w-full h-full"
       >
         <img 

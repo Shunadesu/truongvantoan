@@ -5,6 +5,7 @@ import { SiZalo } from 'react-icons/si'
 import { useCart } from '../contexts/CartContext'
 import { BsCartPlus } from "react-icons/bs";
 import { FaFacebookMessenger } from 'react-icons/fa'
+import StatusBadge from './StatusBadge'
 // CSS cho moving border
 const movingBorderStyle = `
   @keyframes gradient-x {
@@ -89,11 +90,18 @@ export default function AccCard({ acc, disableNavigate }) {
       <div className="p-4 flex flex-col gap-1 w-full">
         <h2
           onClick={disableNavigate ? undefined : goToDetail}
-          className="text-blue-800 font-bold text-sm md:text-lg cursor-pointer hover:text-blue-600"
+          className="text-blue-800 font-bold text-sm md:text-xl cursor-pointer hover:text-blue-600 mb-1"
         >{acc.name}</h2>
         <div className="absolute top-2 right-2 text-md rounded-md text-blue-700 font-bold mb-1 bg-white px-2 py-1">ID: {acc.id}</div>
-        <p className="text-blue-800 font-bold text-xs md:text-[14px]">Giá: <span className="text-red-500 font-bold">{acc.price}</span> </p>
-        <p className="text-gray-700 text-xs md:text-sm mb-2">{acc.description}</p>
+        <p className="text-blue-800 font-bold text-xs md:text-[14px]">Giá: <span className="text-red-500 font-extrabold">{acc.price}</span> </p>
+        
+        {/* Status Badge */}
+        <div className="flex items-center gap-2">
+          <span className="text-blue-800 font-bold text-xs md:text-[14px]">Trạng thái:</span>
+          <StatusBadge status={acc.status}/>
+        </div>
+
+        <p className="text-blue-800 text-xs md:text-sm mb-2">Mô tả: <i className="text-gray-500">{acc.description}</i> </p>
         <div className="grid grid-cols-3 items-center gap-2">
           {/* Facebook Button */}
           <a 

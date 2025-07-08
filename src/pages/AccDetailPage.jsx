@@ -3,6 +3,7 @@ import { accMoThe, accMoGoi, accDoiHinh, accBPTrang, accFCTrang, dichVu } from '
 import { useEffect, useState, useRef } from 'react'
 import { toast } from 'react-hot-toast'
 import AccCard from '../components/AccCard'
+import StatusBadge from '../components/StatusBadge'
 
 import { useCart } from '../contexts/CartContext'
 import { FaFacebookMessenger } from 'react-icons/fa'
@@ -263,7 +264,13 @@ export default function AccDetailPage() {
         <div className="flex-1 flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-blue-800 mb-2">{acc.name}</h1>
           <div className="text-gray-700 mb-4">Mô tả: {acc.description}</div>
-          <div className="text-gray-700 mb-4">Trạng thái: {acc.status}</div>
+          
+          {/* Status Badge */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-gray-700 font-semibold">Trạng thái:</span>
+            <StatusBadge status={acc.status} size="md" />
+          </div>
+          
           <div className="text-xl text-blue-700 font-semibold mb-2">Giá:  {acc.price}</div>
           <div className="grid grid-cols-3 items-center gap-2">
           {/* Facebook Button */}

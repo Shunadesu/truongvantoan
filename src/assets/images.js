@@ -15,6 +15,9 @@ import img_acc_mo_goi_650k from './img/accmogoi/accmogoimonthly650.webp'
 import doihinh1 from './img/accdoihinh/doihinh1.jpeg'
 import doihinh2 from './img/accdoihinh/doihinh2.jpeg'
 import doihinh3 from './img/accdoihinh/doihinh3.jpeg'
+import doihinh4 from './img/accdoihinh/doihinh4.jpeg'
+import doihinh5 from './img/accdoihinh/doihinh5.jpeg'
+
 
 //acc bp trắng
 import accbp296k from './img/accbptrang/accbp296k.jpeg'
@@ -28,7 +31,12 @@ import accbp714k from './img/accbptrang/accbp714k.jpeg'
 import img_4178fc from './img/accfctrang/4178fc.webp'
 import img_6698fc from './img/accfctrang/6698fc.webp'
 import img_11664fc from './img/accfctrang/11664fc.webp'
-import img_13664fc from './img/accfctrang/13664fc.webp'
+
+
+import img_4178fc_2 from './img/accfctrang/4178fc.jpeg'
+import img_6698fc_2 from './img/accfctrang/6698fc.jpeg'
+import img_11664fc_2 from './img/accfctrang/11664fc.jpeg'
+import img_13174fc from './img/accfctrang/13174fc.jpeg'
 
 //dichvu
 import img_accclone from './img/dichvu/accclone20k.webp'
@@ -54,6 +62,8 @@ export const accImages = {
     doihinh1,
     doihinh2,
     doihinh3,
+    doihinh4,
+    doihinh5,
 
     // acc bp trắng
     accbp296k,
@@ -67,7 +77,10 @@ export const accImages = {
     img_4178fc,
     img_6698fc,
     img_11664fc,
-    img_13664fc,
+    img_13174fc,
+    img_4178fc_2,
+    img_6698fc_2,
+    img_11664fc_2,
 
     // dichvu
     img_accclone,

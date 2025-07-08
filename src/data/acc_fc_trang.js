@@ -14,7 +14,7 @@ export const accFCTrang = [
   {
     id: 402,
     name: '6698 FC',
-    price: '1.499.000đ',
+    price: '1.200.000đ',
     description: 'Tặng random quà',
     status: 'Còn',
     image: accImages.img_6698fc,
@@ -33,13 +33,13 @@ export const accFCTrang = [
   },
   {
     id: 404,
-    name: '13.664 FC',
-    price: '2.600.000đ',
+    name: '13.000 FC',
+    price: '2.800.000đ',
     description: 'Tặng random quà',
     status: 'Còn',
     image: accImages.img_13664fc,
-    metaTitle: '13664 FC - truongvantoan.com',
-    metaDescription: 'Mua acc 13664 FC giá tốt tại truongvantoan.com.',
+    metaTitle: '13000 FC - truongvantoan.com',
+    metaDescription: 'Mua acc 13000 FC giá tốt tại truongvantoan.com.',
   },
 
 ]; 

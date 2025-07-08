@@ -88,6 +88,7 @@ export default function AccDetailPage() {
   const imgRef = useRef(null)
   const [isDragging, setIsDragging] = useState(false)
   const [hasTransition, setHasTransition] = useState(true)
+  const [showModalTrigger, setShowModalTrigger] = useState(false)
 
   const relatedAccs = getRelatedAccs(acc, id)
   const { addToCart } = useCart()
@@ -194,35 +195,28 @@ export default function AccDetailPage() {
   const handleImageClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!isZoomed) {
-      // Zoom in tại vị trí click
-      const rect = imgRef.current.getBoundingClientRect()
-      const clickX = e.clientX - rect.left
-      const clickY = e.clientY - rect.top
-      const imgWidth = rect.width
-      const imgHeight = rect.height
-      // scale = 1.5, offset để điểm click nằm giữa
-      const scale = 1.5
-      const offsetX = (imgWidth / 2 - clickX) * (scale - 1)
-      const offsetY = (imgHeight / 2 - clickY) * (scale - 1)
-      setDrag({
-        isDragging: false,
-        startX: 0,
-        startY: 0,
-        offsetX,
-        offsetY,
-        lastOffsetX: offsetX,
-        lastOffsetY: offsetY
-      })
-      setIsZoomed(true)
-      setHasTransition(true)
-    } else {
-      // Zoom out
-      setIsZoomed(false)
-      setHasTransition(true)
-      setDrag({ isDragging: false, startX: 0, startY: 0, offsetX: 0, offsetY: 0, lastOffsetX: 0, lastOffsetY: 0 })
+    // Chỉ set trigger, không mở modal trực tiếp
+    setShowModalTrigger(true);
+  };
+  
+  // useEffect để mở modal khi trigger được set
+  useEffect(() => {
+    if (showModalTrigger && mainImg) {
+      openImageModal(mainImg);
+      setShowModalTrigger(false);
     }
-  }
+  }, [showModalTrigger, mainImg]);
+  
+  // Tách biệt logic mở modal cho thumbnail
+  const handleThumbnailClick = (e, img) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setMainImg(img);
+    // Delay một chút để tránh conflict
+    setTimeout(() => {
+      openImageModal(img);
+    }, 100);
+  };
 
   if (!acc) return <div className="text-red-600 text-xl">Không tìm thấy acc!</div>
 
@@ -237,7 +231,7 @@ export default function AccDetailPage() {
             src={mainImg} 
             alt={acc.name} 
             className="w-full h-full object-contain rounded mb-4 border-4 border-blue-600 cursor-pointer hover:opacity-90 transition-opacity" 
-            onClick={() => openImageModal(mainImg)}
+            onClick={handleImageClick}
           />
           {images.length > 1 && (
           <div className="flex flex-wrap gap-2 mt-2">
@@ -251,7 +245,7 @@ export default function AccDetailPage() {
                   e.preventDefault();
                   e.stopPropagation();
                   setMainImg(img);
-                  openImageModal(img);
+                  handleThumbnailClick(e, img);
                 }}
               >
                 <img

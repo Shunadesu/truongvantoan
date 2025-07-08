@@ -306,7 +306,7 @@ export default function AccDetailPage() {
         <h2 className="text-blue-800 text-2xl font-bold mb-6">Tham khảo thêm</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6">
           {relatedAccs.map(acc => (
-            <AccCard key={acc.uniqueId} acc={acc} minPrice={null} />
+            <AccCard key={acc.uniqueId} acc={acc} minPrice={null} disableNavigate={true} />
           ))}
         </div>
       </div>

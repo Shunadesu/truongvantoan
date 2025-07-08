@@ -14,7 +14,7 @@ const movingBorderStyle = `
 `
 
 
-export default function AccCard({ acc }) {
+export default function AccCard({ acc, disableNavigate }) {
   const navigate = useNavigate()
   const { addToCart } = useCart()
 
@@ -70,7 +70,10 @@ export default function AccCard({ acc }) {
 
   return (
     <div className="bg-white relative border border-blue-200 rounded-lg shadow flex flex-col items-center cursor-pointer hover:shadow-xl transition" >
-      <div onClick={goToDetail} className="relative w-full h-full">
+      <div
+        onClick={disableNavigate ? undefined : goToDetail}
+        className="relative w-full h-full"
+      >
         <img 
           src={acc.image} 
           alt={acc.name} 
@@ -84,7 +87,10 @@ export default function AccCard({ acc }) {
         />
       </div>
       <div className="p-4 flex flex-col gap-1 w-full">
-        <h2 onClick={goToDetail} className="text-blue-800 font-bold text-sm md:text-lg cursor-pointer hover:text-blue-600">{acc.name}</h2>
+        <h2
+          onClick={disableNavigate ? undefined : goToDetail}
+          className="text-blue-800 font-bold text-sm md:text-lg cursor-pointer hover:text-blue-600"
+        >{acc.name}</h2>
         <div className="absolute top-2 right-2 text-md rounded-md text-blue-700 font-bold mb-1 bg-white px-2 py-1">ID: {acc.id}</div>
         <p className="text-blue-800 font-bold text-xs md:text-[14px]">Giá: <span className="text-red-500 font-bold">{acc.price}</span> </p>
         <p className="text-gray-700 text-xs md:text-sm mb-2">{acc.description}</p>

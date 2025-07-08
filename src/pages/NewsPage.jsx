@@ -40,6 +40,30 @@ const SocialButton = ({ href, icon, children, bgColor, hoverColor, isPhone = fal
   </a>
 )
 
+// Danh sách các bài viết Facebook
+const FACEBOOK_POSTS = [
+  {
+    id: 1,
+    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid02p97xBYdx9t43V2N87oT5qMzYJFeqewNE7QqLBgsvJppTfqZfQhQhfG9mj9xqsjXBl',
+    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02p97xBYdx9t43V2N87oT5qMzYJFeqewNE7QqLBgsvJppTfqZfQhQhfG9mj9xqsjXBl&show_text=true&width=700',
+  },
+  {
+    id: 2,
+    postUrl: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Qceerecrwpm4DmNcgp46L4rFMMm882haQQXrAA5uwQErmsTwSeZVoSbKuUmKQqAGl',
+    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Qceerecrwpm4DmNcgp46L4rFMMm882haQQXrAA5uwQErmsTwSeZVoSbKuUmKQqAGl&show_text=true&width=700',
+  },
+  {
+    id: 3,
+    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid022M8Zou883ZT4SVxNwosvPDDyugf28q9HXoXNrth43shYd8siqK9XhEeL5HhraWdDl',
+    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid022M8Zou883ZT4SVxNwosvPDDyugf28q9HXoXNrth43shYd8siqK9XhEeL5HhraWdDl&show_text=true&width=700',
+  },
+  {
+    id: 4,
+    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid02Qnof9ntbmKpLTjbLaVRHZHCRXD1nhRjXUTbXooKxALJuhWohJHH9DsxE7TghtWgDl',
+    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Qnof9ntbmKpLTjbLaVRHZHCRXD1nhRjXUTbXooKxALJuhWohJHH9DsxE7TghtWgDl&show_text=true&width=700',
+  },
+];
+
 export default function NewsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
@@ -56,108 +80,103 @@ export default function NewsPage() {
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto">
-          {/* Facebook Post Card */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
-            <div className="p-6 border-b border-gray-100">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">truongvantoan.com</h3>
-                  <p className="text-sm text-gray-500">Họp Chợ hằng ngày</p>
-                </div>
-              </div>
-              
-            
-            </div>
-            
-            {/* Facebook Post Container */}
-            <div className="p-6 bg-gray-50">
-              <div className="flex justify-center">
-                <div className="relative">
-                  {/* Option 1: Original iframe */}
-                  <div className="md:block hidden">
-                  
-                    <iframe 
-                      src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02p97xBYdx9t43V2N87oT5qMzYJFeqewNE7QqLBgsvJppTfqZfQhQhfG9mj9xqsjXBl&show_text=true&width=500" 
-                      width="600" 
-                      height="540" 
-                      style={{border: 'none', overflow: 'hidden'}} 
-                      scrolling="no" 
-                      frameBorder="0" 
-                      allowFullScreen="true" 
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      className="rounded-lg shadow-md"
-                      title="Facebook Post"
-                    />
+          {/* Facebook Post Cards */}
+          {FACEBOOK_POSTS.map(post => (
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8" key={post.id}>
+              <div className="p-6 border-b border-gray-100">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
                   </div>
-                  <div className="md:hidden block">
-                    <iframe 
-                      src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Qnof9ntbmKpLTjbLaVRHZHCRXD1nhRjXUTbXooKxALJuhWohJHH9DsxE7TghtWgDl&show_text=true&width=500" 
-                      width="400" 
-                      height="400" 
-                      style={{border: 'none', overflow: 'hidden'}} 
-                      scrolling="no" 
-                      frameBorder="0" 
-                      allowFullScreen="true" 
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      className="rounded-lg shadow-md"
-                      title="Facebook Post"
-                    />
-                  </div>
-                  
-                  {/* Fallback if iframe fails */}
-                  <div className="mt-4 text-center">
-                    <p className="text-sm text-gray-500 mb-2">
-                      Nếu bài viết không hiển thị, hãy truy cập trực tiếp:
-                    </p>
-                    <a 
-                      href="https://www.facebook.com/toan.truong1003/posts/pfbid02Qnof9ntbmKpLTjbLaVRHZHCRXD1nhRjXUTbXooKxALJuhWohJHH9DsxE7TghtWgDl" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                    >
-                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                      </svg>
-                      Xem bài viết trên Facebook
-                    </a>
+                  <div>
+                    <h3 className="font-semibold text-gray-800">truongvantoan.com</h3>
+                    <p className="text-sm text-gray-500">Họp Chợ hằng ngày</p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="p-6 bg-white">
-              <div className="flex flex-wrap gap-3 justify-center">
-                <a 
-                  href="https://www.facebook.com/toan.truong1003" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200 flex items-center"
-                >
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                  Theo dõi Facebook
-                </a>
-                <a 
-                  href="https://truongvantoan.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-200 flex items-center"
-                >
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                  Truy cập Website
-                </a>
+              {/* Facebook Post Container */}
+              <div className="p-6 bg-gray-50">
+                <div className="flex justify-center">
+                  <div className="relative">
+                    <div className="md:block hidden">
+                      <iframe
+                        src={post.iframeSrc}
+                        width="700"
+                        height="612"
+                        style={{ border: 'none', overflow: 'hidden' }}
+                        scrolling="no"
+                        frameBorder="0"
+                        allowFullScreen={true}
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        className="rounded-lg shadow-md"
+                        title={`Facebook Post ${post.id}`}
+                      />
+                    </div>
+                    <div className="md:hidden block">
+                      <iframe
+                        src={post.iframeSrc}
+                        width="400"
+                        height="400"
+                        style={{ border: 'none', overflow: 'hidden' }}
+                        scrolling="no"
+                        frameBorder="0"
+                        allowFullScreen={true}
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        className="rounded-lg shadow-md"
+                        title={`Facebook Post ${post.id}`}
+                      />
+                    </div>
+                    {/* Fallback if iframe fails */}
+                    <div className="mt-4 text-center">
+                      <p className="text-sm text-gray-500 mb-2">
+                        Nếu bài viết không hiển thị, hãy truy cập trực tiếp:
+                      </p>
+                      <a
+                        href={post.postUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                      >
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Xem bài viết trên Facebook
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Action Buttons */}
+              <div className="p-6 bg-white">
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <a
+                    href="https://www.facebook.com/toan.truong1003"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200 flex items-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Theo dõi Facebook
+                  </a>
+                  <a
+                    href="https://truongvantoan.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-200 flex items-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                    Truy cập Website
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
 
           {/* Additional Info Cards */}
           <div className="grid md:grid-cols-2 gap-6">

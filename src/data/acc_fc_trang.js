@@ -4,7 +4,7 @@ export const accFCTrang = [
   {
     id: 401,
     name: '4178 FC',
-    price: '1.200.000đ',
+    price: '650.000đ',
     description: 'Tặng random quà',
     status: 'Còn',
     image: accImages.img_4178fc,
@@ -14,7 +14,7 @@ export const accFCTrang = [
   {
     id: 402,
     name: '6698 FC',
-    price: '1.200.000đ',
+    price: '1.499.000đ',
     description: 'Tặng random quà',
     status: 'Còn',
     image: accImages.img_6698fc,

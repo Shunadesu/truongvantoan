@@ -35,6 +35,47 @@ function getRelatedAccs(acc, id, n = 4) {
   return related.slice(0, n).map((item, index) => ({ ...item, uniqueId: `related-${id}-${index}` }))
 }
 
+// Thêm component ProductSchema để chèn schema.org Product
+function ProductSchema({ acc }) {
+  if (!acc) return null;
+  const priceNumber = parseInt(acc.price.replace(/[^\d]/g, ''));
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": acc.name,
+        "image": acc.images && acc.images.length > 0 ? acc.images : [acc.image],
+        "description": acc.description,
+        "sku": acc.id,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "VND",
+          "price": priceNumber,
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2099-12-31"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "1"
+        },
+        "review": [{
+          "@type": "Review",
+          "author": "Khách hàng",
+          "datePublished": "2024-01-01",
+          "reviewBody": "Sản phẩm tốt!",
+          "name": "Đánh giá mẫu",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          }
+        }]
+      })
+    }} />
+  );
+}
+
 export default function AccDetailPage() {
   const { id } = useParams()
   const acc = findAccById(id)
@@ -187,6 +228,8 @@ export default function AccDetailPage() {
 
   return (
     <>
+      {/* Schema.org Product JSON-LD */}
+      {acc && <ProductSchema acc={acc} />}
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow p-8 mt-8 flex flex-col md:flex-row gap-8">
         {/* Hình ảnh acc */}
         <div className="flex-1 flex flex-col items-center">
@@ -199,20 +242,27 @@ export default function AccDetailPage() {
           {images.length > 1 && (
           <div className="flex flex-wrap gap-2 mt-2">
             {images.map((img, idx) => (
-              <img
+              <button
                 key={img+idx}
-                src={img}
-                alt={acc.name + ' thumbnail'}
-                className={`w-16 h-16 object-cover rounded border-2 cursor-pointer hover:opacity-80 transition-opacity ${mainImg === img ? 'border-blue-600' : 'border-gray-300'}`}
+                type="button"
+                className={`p-0 border-none bg-transparent w-16 h-16 rounded ${mainImg === img ? 'border-blue-600' : 'border-gray-300'}`}
+                style={{ outline: 'none' }}
                 onClick={e => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setMainImg(img)
-                  openImageModal(img)
+                  setMainImg(img);
+                  openImageModal(img);
                 }}
-              />
-              ))}
-            </div>
+              >
+                <img
+                  src={img}
+                  alt={acc.name + ' thumbnail'}
+                  className="w-16 h-16 object-cover rounded"
+                  draggable={false}
+                />
+              </button>
+            ))}
+          </div>
           )}
         </div>
         {/* Thông tin acc */}

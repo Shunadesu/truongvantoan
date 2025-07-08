@@ -5,7 +5,7 @@ import bannerchealse from './img/bannerchealse.jpeg'
 import logotvt from './img/logotvt-removebg-preview.png'
 import imgCheckLegit from './img/img_check_legit.jpg'
 import img_qr_boxchat from './img/img_qr_boxchat.jpg'
-
+import img_logo_2 from './img/logo_2.jpeg'
 // acc mở gói
 import img_acc_mo_goi_550k from './img/accmogoi/accmogoimonthly550.webp'
 import img_acc_mo_goi_599k from './img/accmogoi/accmogoimonthly599.webp'
@@ -44,7 +44,7 @@ export const accImages = {
     imgCheckLegit,
     img_qr_boxchat,
     logotvt,
-
+    img_logo_2,
     // acc mở gói
     img_acc_mo_goi_550k,
     img_acc_mo_goi_599k,

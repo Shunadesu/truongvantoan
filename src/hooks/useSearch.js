@@ -85,6 +85,11 @@ export const useSearch = () => {
           const priceB = parseInt(b.price.replace(/[^\d]/g, ''));
           return priceA - priceB;
         }
+        case 'priceDesc': {
+          const priceA = parseInt(a.price.replace(/[^\d]/g, ''));
+          const priceB = parseInt(b.price.replace(/[^\d]/g, ''));
+          return priceB - priceA;
+        }
         case 'category':
           return a.category.localeCompare(b.category);
         case 'id':

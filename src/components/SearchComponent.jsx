@@ -126,8 +126,9 @@ export default function SearchComponent() {
               {[
                 { key: 'name', label: 'Tên' },
                 { key: 'id', label: 'ID' },
-                { key: 'price', label: 'Giá' },
-                { key: 'category', label: 'Danh mục' }
+                { key: 'category', label: 'Danh mục' },
+                { key: 'price', label: 'Giá thấp đến cao' },
+                { key: 'priceDesc', label: 'Giá cao đến thấp' },
               ].map(option => (
                 <button
                   key={option.key}

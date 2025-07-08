@@ -2,7 +2,8 @@ export default function CategoryNav({ categories }) {
   const handleClick = (key) => {
     const el = document.getElementById(key)
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      const y = el.getBoundingClientRect().top + window.pageYOffset - 100 // 80 là chiều cao header
+      window.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
   return (

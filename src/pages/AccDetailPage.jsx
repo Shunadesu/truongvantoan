@@ -18,7 +18,8 @@ function findAccById(id) {
 
 function getRelatedAccs(acc, id, n = 4) {
   if (!acc) return []
-  const all = [accDoiHinh, accBPTrang, accFCTrang, dichVu].flat()
+  // Lọc bỏ các acc có status "Đã bán"
+  const all = [accDoiHinh, accBPTrang, accFCTrang, dichVu].flat().filter(a => a.status !== 'Đã bán')
   let related = []
   if (acc.category) {
     related = all.filter(a => a.category === acc.category && String(a.id) !== String(id))

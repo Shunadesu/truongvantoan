@@ -199,5 +199,13 @@ export const accBPTrang = [
     status: 'Còn',
     image: accImages.accbp620k,
   },
+  {
+    id: 324,
+    name: '696K Tỷ',
+    price: '3.132.000đ',
+    description: 'Acc BP trắng thông tin',
+    status: 'Còn',
+    image: accImages.accbp696k,
+  },
   
   ]; 

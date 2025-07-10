@@ -6,7 +6,7 @@ import { accImages } from '../assets/images'
     name: 'Giá trị đội hình',
     price: '3.200.000đ',
     description: 'Trắng thông tin',
-    status: 'Còn',
+    status: 'Đã bán',
     image: accImages.doihinh1,
     metaTitle: 'Giá trị đội hình - truongvantoan.com',
     metaDescription: 'Mua acc giá trị đội hình giá tốt tại truongvantoan.com.',

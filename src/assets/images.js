@@ -25,6 +25,7 @@ import accbp357k from './img/accbptrang/accbp357k.jpeg'
 import accbp368k from './img/accbptrang/accbp368k.jpeg'
 import accbp380k from './img/accbptrang/accbp380k.jpeg'
 import accbp432k from './img/accbptrang/accbp432k.jpeg'
+import accbp514k from './img/accbptrang/accbp514k.jpg'
 import accbp714k from './img/accbptrang/accbp714k.jpeg'
 
 //acc chứa fc trắng
@@ -71,6 +72,7 @@ export const accImages = {
     accbp368k,
     accbp380k,
     accbp432k,
+    accbp514k,
     accbp714k,
 
     // acc chứa fc trắng    

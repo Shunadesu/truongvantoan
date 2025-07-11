@@ -56,7 +56,7 @@ export const accBPTrang = [
     name: '514K Tỷ',
     price: '2.313.000đ',
     description: 'Acc BP trắng thông tin',
-    status: 'Còn',
+    status: 'Đã bán',
     image: accImages.accbp514k,
     metaTitle: 'Acc BP Trắng Giá Rẻ - Shop Acc Game',
     metaDescription: 'Acc BP trắng giá rẻ, an toàn, uy tín tại truongvantoan.com.',

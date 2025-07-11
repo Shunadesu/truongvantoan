@@ -17,6 +17,8 @@ import doihinh2 from './img/accdoihinh/doihinh2.jpeg'
 import doihinh3 from './img/accdoihinh/doihinh3.jpeg'
 import doihinh4 from './img/accdoihinh/doihinh4.jpeg'
 import doihinh5 from './img/accdoihinh/doihinh5.jpeg'
+import doihinh6 from './img/accdoihinh/doihinh6.jpg'
+import doihinh6_2 from './img/accdoihinh/doihinh6-2.jpg'
 
 
 //acc bp trắng
@@ -45,6 +47,8 @@ import accbp432_1k from './img/accbptrang/accbp432-1k.jpg'
 import accbp450k from './img/accbptrang/accbp450k.jpg'
 import accbp620k from './img/accbptrang/accbp620k.jpg'
 import accbp696k from './img/accbptrang/accbp696k.jpeg'
+
+import accbp595k from './img/accbptrang/accbp595k.jpg'
 
 //acc chứa fc trắng
 import img_4178fc from './img/accfctrang/4178fc.webp'
@@ -83,6 +87,8 @@ export const accImages = {
     doihinh3,
     doihinh4,
     doihinh5,
+    doihinh6,
+    doihinh6_2,
 
     // acc bp trắng
     accbp296k,
@@ -109,7 +115,7 @@ export const accImages = {
     accbp450k,
     accbp620k,
     accbp696k,
-
+    accbp595k,
     // acc chứa fc trắng    
     img_4178fc,
     img_6698fc,

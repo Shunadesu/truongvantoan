@@ -20,6 +20,7 @@ import doihinh5 from './img/accdoihinh/doihinh5.jpeg'
 import doihinh6 from './img/accdoihinh/doihinh6.jpg'
 import doihinh6_2 from './img/accdoihinh/doihinh6-2.jpg'
 import doihinh7 from './img/accdoihinh/doihinh7.jpg'
+import doihinh8 from './img/accdoihinh/doihinh8.jpg'
 
 
 //acc bp trắng
@@ -95,6 +96,7 @@ export const accImages = {
     doihinh6,
     doihinh6_2,
     doihinh7,
+    doihinh8,
     // acc bp trắng
     accbp296k,
     accbp357k,

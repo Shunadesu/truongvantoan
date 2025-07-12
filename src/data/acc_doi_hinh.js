@@ -71,4 +71,14 @@ import { accImages } from '../assets/images'
     metaTitle: 'Giá trị đội hình - truongvantoan.com',
     metaDescription: 'Mua acc giá trị đội hình giá tốt tại truongvantoan.com.',
   },
+  {
+    id: 208,
+    name: 'Giá trị đội hình',
+    price: '9.000.000đ',
+    description: 'Số điện thoại đổi',
+    status: 'Còn',
+    image: accImages.doihinh8,
+    metaTitle: 'Giá trị đội hình - truongvantoan.com',
+    metaDescription: 'Mua acc giá trị đội hình giá tốt tại truongvantoan.com.',
+  },
 ]; 

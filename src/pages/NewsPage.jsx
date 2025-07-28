@@ -44,6 +44,11 @@ const SocialButton = ({ href, icon, children, bgColor, hoverColor, isPhone = fal
 const FACEBOOK_POSTS = [
   {
     id: 0,
+    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid02Jyo5SBL2APQpCvNbtzrjL1UwaTj7nd82KPcn8KAk9cpkTSv3AKH7ujXdy4z7R2Aml',
+    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Jyo5SBL2APQpCvNbtzrjL1UwaTj7nd82KPcn8KAk9cpkTSv3AKH7ujXdy4z7R2Aml&show_text=true&width=500',
+  },
+  {
+    id: 11,
     postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid02VFK9WyW4AmY7xvPg8wnLJYPZ7cwadNxSDCRYTuf3GUoTyfNCxYSEegpTp3MovikLl',
     iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02VFK9WyW4AmY7xvPg8wnLJYPZ7cwadNxSDCRYTuf3GUoTyfNCxYSEegpTp3MovikLl&show_text=true&width=500',
   },

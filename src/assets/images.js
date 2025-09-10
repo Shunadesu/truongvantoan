@@ -12,16 +12,18 @@ import img_acc_mo_goi_599k from './img/accmogoi/accmogoimonthly599.webp'
 import img_acc_mo_goi_650k from './img/accmogoi/accmogoimonthly650.webp'
 
 //accdoihinh
-import doihinh1 from './img/accdoihinh/doihinh1.jpeg'
-import doihinh2 from './img/accdoihinh/doihinh2.jpeg'
-import doihinh3 from './img/accdoihinh/doihinh3.jpeg'
-import doihinh4 from './img/accdoihinh/doihinh4.jpeg'
-import doihinh5 from './img/accdoihinh/doihinh5.jpeg'
-import doihinh6 from './img/accdoihinh/doihinh6.jpg'
-import doihinh6_2 from './img/accdoihinh/doihinh6-2.jpg'
-import doihinh7 from './img/accdoihinh/doihinh7.jpg'
-import doihinh8 from './img/accdoihinh/doihinh8.jpg'
-
+// import doihinh1 from './img/accdoihinh/doihinh1.jpeg'
+// import doihinh2 from './img/accdoihinh/doihinh2.jpeg'
+// import doihinh3 from './img/accdoihinh/doihinh3.jpeg'
+// import doihinh4 from './img/accdoihinh/doihinh4.jpeg'
+// import doihinh5 from './img/accdoihinh/doihinh5.jpeg'
+// import doihinh6 from './img/accdoihinh/doihinh6.jpg'
+// import doihinh6_2 from './img/accdoihinh/doihinh6-2.jpg'
+// import doihinh7 from './img/accdoihinh/doihinh7.jpg'
+// import doihinh8 from './img/accdoihinh/doihinh8.jpg'
+import doihinh9 from './img/accdoihinh/doihinh9.jpg'
+import doihinh10 from './img/accdoihinh/doihinh10.jpg'
+import doihinh11 from './img/accdoihinh/doihinh11.jpg'
 
 //acc bp trắng
 import accbp296k from './img/accbptrang/accbp296k.jpeg'
@@ -88,15 +90,18 @@ export const accImages = {
     img_acc_mo_goi_650k,
 
     // acc doihinh
-    doihinh1,
-    doihinh2,
-    doihinh3,
-    doihinh4,
-    doihinh5,
-    doihinh6,
-    doihinh6_2,
-    doihinh7,
-    doihinh8,
+    // doihinh1,
+    // doihinh2,
+    // doihinh3,
+    // doihinh4,
+    // doihinh5,
+    // doihinh6,
+    // doihinh6_2,
+    // doihinh7,
+    // doihinh8,
+    doihinh9,
+    doihinh10,
+    doihinh11,
     // acc bp trắng
     accbp296k,
     accbp357k,

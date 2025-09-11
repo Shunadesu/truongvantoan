@@ -55,6 +55,7 @@ export const accImages = {
     bp_790k,
     bp_1203k,
     bp_1242k,
+    bp_2400k,
     // acc chứa fc trắng    
     img_1926fc,
     img_3738fc,

@@ -19,6 +19,7 @@ import doihinh10 from './img/accdoihinh/doihinh10.jpg'
 import bp_790k from './img/accbptrang/bp_790k.jpg'
 import bp_1203k from './img/accbptrang/bp_1203k.jpg'
 import bp_1242k from './img/accbptrang/bp_1242k.jpg'
+import bp_2400k from './img/accbptrang/bp_2400k.jpg'
 
 
 //acc chứa fc trắng

@@ -6,20 +6,7 @@ import logotvt from './img/logotvt-removebg-preview.png'
 import imgCheckLegit from './img/img_check_legit.jpg'
 import img_qr_boxchat from './img/img_qr_boxchat.jpg'
 import img_logo_2 from './img/logo_2.jpeg'
-// acc mở gói
-import img_acc_mo_goi_550k from './img/accmogoi/accmogoimonthly550.webp'
-import img_acc_mo_goi_599k from './img/accmogoi/accmogoimonthly599.webp'
-import img_acc_mo_goi_650k from './img/accmogoi/accmogoimonthly650.webp'
 
-//accdoihinh
-import doihinh9 from './img/accdoihinh/doihinh9.jpg'
-import doihinh10 from './img/accdoihinh/doihinh10.jpg'
-
-//acc bp trắng
-import bp_790k from './img/accbptrang/bp_790k.jpg'
-import bp_1203k from './img/accbptrang/bp_1203k.jpg'
-import bp_1242k from './img/accbptrang/bp_1242k.jpg'
-import bp_2400k from './img/accbptrang/bp_2400k.jpg'
 
 
 //acc chứa fc trắng
@@ -49,18 +36,7 @@ export const accImages = {
     img_qr_boxchat,
     logotvt,
     img_logo_2,
-    // acc mở gói
-    img_acc_mo_goi_550k,
-    img_acc_mo_goi_599k,
-    img_acc_mo_goi_650k,
-
-    doihinh9,
-    doihinh10,
-    // acc bp trắng
-    bp_790k,
-    bp_1203k,
-    bp_1242k,
-    bp_2400k,
+    
     // acc chứa fc trắng    
     img_1926fc,
     img_3738fc,

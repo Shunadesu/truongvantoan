@@ -12,7 +12,7 @@ const LegitCard = ({ name, facebookUrl, avatar, index }) => {
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
-      <div className="relative z-10 flex items-center space-x-4">
+      <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="relative z-10 flex items-center space-x-4">
         {/* Avatar with animation */}
         <div className="relative">
           <img 
@@ -44,7 +44,7 @@ const LegitCard = ({ name, facebookUrl, avatar, index }) => {
           <FaFacebook size={16} />
           <span className="hidden sm:inline">Facebook</span>
         </a>
-      </div>
+      </a>
       
       {/* Animated border */}
       <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 w-0 group-hover:w-full transition-all duration-500"></div>

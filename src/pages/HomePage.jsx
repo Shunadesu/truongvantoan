@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { accDoiHinh, accFCTrang } from '../data'
 import AccCard from '../components/AccCard'
+import LegitCard from '../components/LegitCard'
 import banner from '../assets/img/banner.gif'
 import { SiZalo } from 'react-icons/si'
 import { accImages } from '../assets/images'
@@ -9,11 +10,29 @@ import SEOHead from '../components/SEOHead'
 // SEO Meta Data
 const SEO_DATA = {
   title: 'truongvantoan.com - Shop Bán Account Game Uy Tín Hàng Đầu Việt Nam',
-  description: 'Mua bán account game Liên Quân, Free Fire, FIFA Online 4 giá rẻ, uy tín, giao hàng nhanh. Shop account game chất lượng cao với nhiều ưu đãi hấp dẫn.',
-  keywords: 'account game, mua acc game, bán acc game, acc liên quân, acc free fire, acc fifa, shop game, game account',
+  description: 'Mua bán account game FIFA Online 4 giá rẻ, uy tín, giao hàng nhanh. Shop account game chất lượng cao với nhiều ưu đãi hấp dẫn.',
+  keywords: 'account game, mua acc game, bán acc game, acc fifa, shop game, game account',
   ogImage: banner,
   canonical: 'https://truongvantoan.com'
 }
+
+const LEGIT = [
+  {
+    name: 'Lộc Lê',
+    facebookUrl: 'https://www.facebook.com/loc.levan.1675',
+    img: 'https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/555599406_2744173842446246_7012954981255029970_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=iVdcBnWNoV0Q7kNvwGATAJS&_nc_oc=Adksx9yguC4ipLEsRTBZUDT-fSuy7z2NSX2tXEFjHwGeCm-p-D8kwzalNpYsKE4rxrwDTny7TqzVLxY4MeufSz6c&_nc_zt=23&_nc_ht=scontent.fsgn5-12.fna&_nc_gid=ponS3yUPRdUnpLTNyRRxeg&oh=00_Afbb7uFdQZMFR3cQHz2CHTPutCENC_rxB1Fh-OeRu8r5Mw&oe=68DEF6AE'
+  },
+  {
+    name: 'Vũ Tuấn Anh',
+    facebookUrl: 'https://www.facebook.com/vutuananhmid1990',
+    img: 'https://scontent.fsgn5-14.fna.fbcdn.net/v/t39.30808-6/508889357_2228835727589885_9206773666076178941_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=BKKgslrMl98Q7kNvwG8NH1w&_nc_oc=AdmDZor-g58JXLKTQxpE_9edF2vlT1HP9j3eRNp_0G-6nNNbFEj2ccQWjX7TC9GOHiO3gRtu2Zsvfc24jho69W2i&_nc_zt=23&_nc_ht=scontent.fsgn5-14.fna&_nc_gid=kA-_8rEdJZzRjf8PkQKpZQ&oh=00_AfYJwdTL19gVNPfSlPb_XXesj5dSCM5GWnf7ZXAAAXIMJw&oe=68DEE9C3'
+  },
+  // {
+  //   name: 'Trương Văn Toàn',
+  //   facebookUrl: 'https://www.facebook.com/toan.truong1003',
+  //   img: accImages.defaultAvatar
+  // }
+]
 
 // Social Media Links
 const SOCIAL_LINKS = {
@@ -130,6 +149,34 @@ export default function HomePage() {
         </div>
       </section> */}
         {/* Featured Products */}
+
+        {/* Legit Confirmation Section */}
+        <section className="py-8  relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+          
+          <div className="container max-w-4xl mx-auto px-4 relative z-10">
+            <div className="text-center">
+              <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-6 animate-fadeInUp">
+                Thương Nhân Uy Tín
+              </h2>
+            </div>
+            
+             <div className="space-y-4">
+               {LEGIT.map((person, index) => (
+                 <LegitCard 
+                   key={person.name}
+                   name={person.name}
+                   facebookUrl={person.facebookUrl}
+                   avatar={person.img}
+                   index={index}
+                 />
+               ))}
+             </div>
+          </div>
+        </section>
         <section className="py-8 bg-white rounded-lg">
           <div className="container max-w-[1240px] mx-auto px-4">
             <div className="text-center mb-12">

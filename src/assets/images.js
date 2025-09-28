@@ -35,6 +35,11 @@ import img_accclone from './img/dichvu/accclone20k.webp'
 //nền
 import img_25tots from './img/25tots.jpg'
 
+// ảnh người xác nhận legit (placeholder)
+import defaultAvatar from './img/logotvt-removebg-preview.png'
+// import img_locle from './img/img_locle.jpg'
+// import img_vutuananh from './img/img_vutuananh.jpg'
+
 
 // Account images
 export const accImages = {
@@ -67,4 +72,7 @@ export const accImages = {
 
     // nền
     img_25tots,
+    
+    // ảnh người xác nhận
+    defaultAvatar,
 }   

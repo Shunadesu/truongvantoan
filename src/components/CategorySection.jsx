@@ -11,10 +11,11 @@ export default function CategorySection({ title, accs, id }) {
 
   return (
     <section className="mb-10" id={id}>
+      
       <h3 className="text-blue-800 font-bold text-3xl mb-4">{title}</h3>
       <div className="bg-blue-50 rounded-lg p-4 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
         {accs.length === 0 ? (
-          <div className="col-span-full text-gray-400 italic">Chưa có acc nào trong danh mục này.</div>
+          <div className="col-span-full text-gray-400 italic">Tạm thời hết acc trong danh mục này.</div>
         ) : (
           accs.map(acc => <AccCard key={acc.id} acc={acc} minPrice={minPriceStr} />)
         )}

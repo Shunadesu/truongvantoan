@@ -42,18 +42,12 @@ const SocialButton = ({ href, icon, children, bgColor, hoverColor, isPhone = fal
 
 // Danh sách các bài viết Facebook
 const FACEBOOK_POSTS = [
-  // 7/9
   {
     id: 0,
-    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid02bc34tQd9Gtziyt8WkxrqpVFpeKbtDJqe1UdVs48fVcWm2UyiYmY9rvMuBhdetmjTl',
-    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02bc34tQd9Gtziyt8WkxrqpVFpeKbtDJqe1UdVs48fVcWm2UyiYmY9rvMuBhdetmjTl&show_text=true&width=500',
+    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid05GzxXfihmV8HmNa9aEHFRWKwfX4PxuL7HKiX8u8A39Az3ihrNSpsKmmmM9WeenAYl',
+    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid05GzxXfihmV8HmNa9aEHFRWKwfX4PxuL7HKiX8u8A39Az3ihrNSpsKmmmM9WeenAYl&show_text=true&width=500',
   },
-  
-  {
-    id: 1,
-    postUrl: 'https://www.facebook.com/toan.truong1003/posts/pfbid02Jyo5SBL2APQpCvNbtzrjL1UwaTj7nd82KPcn8KAk9cpkTSv3AKH7ujXdy4z7R2Aml',
-    iframeSrc: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoan.truong1003%2Fposts%2Fpfbid02Jyo5SBL2APQpCvNbtzrjL1UwaTj7nd82KPcn8KAk9cpkTSv3AKH7ujXdy4z7R2Aml&show_text=true&width=500',
-  },
+
 ];
 
 export default function NewsPage() {
